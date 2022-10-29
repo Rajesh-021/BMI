@@ -19,16 +19,7 @@
 
             var bmi=(weight/(height/100)**2).toFixed(1);
              document.getElementById("h2").innerHTML=bmi;
-             
-             
-             if(isNaN(age)){
-                document.getElementById("agev").innerHTML="Age must be number".fontcolor("red");
-           
-            }
-            else{
-                document.getElementById("agev").innerHTML="";
-            }
-
+          
              if(isNaN(bmi)){
              
                 document.getElementById("h2").innerHTML="Fill all of these correctly (only numbers are allowed)".fontcolor("red").fontsize("5px");
@@ -99,19 +90,19 @@
              <div class="mt-3 ms-3">
                    <lebel>Year </lebel>
                 <div>
-                    <input type="text" id="age">
-                    <p id="agev"></p>
+                    <input type="number" id="age">
+                   
                 </div>
             </div>
 
             <div class="row ms-1 mt-3">
                 <div class="col-xl-5 ms-2 ">
                     <lebel>height</lebel>
-                    <div><input type="text" id="height"  ><span class="border border-1 p-1">cm</span></div>
+                    <div><input type="number" id="height"  ><span class="border border-1 p-1">cm</span></div>
                 </div>
                 <div class="col-xl-5 ms-2 mt-3">
                     <lebel>weight</lebel>
-                    <div><input type="text" id="weight"  ><span class="border border-1 p-1">KG</span></div>
+                    <div><input type="number" id="weight"  ><span class="border border-1 p-1">KG</span></div>
                 </div>
             </div>
             <button onclick="clickShow()" id="submit" class="btn btn-primary w-25 mt-3">Calculate</button>
