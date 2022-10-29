@@ -13,15 +13,23 @@
          
 
         function clickShow(){
+            var age=document.getElementById("age").value;
             var height=parseInt(document.getElementById("height").value);
             var weight=parseInt(document.getElementById("weight").value);
 
             var bmi=(weight/(height/100)**2).toFixed(1);
              document.getElementById("h2").innerHTML=bmi;
              
+             
+             if(isNaN(age)){
+                document.getElementById("agev").innerHTML="Enter Age".fontcolor("red");
+               
+              
+            }
 
              if(isNaN(bmi)){
                 document.getElementById("h2").innerHTML=""
+                document.getElementById("msg").innerHTML="ONLY NUMBER".fontcolor("red").fontsize("5px");
               
             }
             else{
@@ -35,7 +43,7 @@
         
             if(bmi<18.5){
                msg.innerHTML=`Your BMI is  ${bmi}.You are in the underweight range`;
-                weight.style.backgroundColor="skyblue";
+                weight.style.backgroundColor="rgb(13, 222, 163)";
                
             }
            else if(bmi>=18.5 && bmi<=24.9){
@@ -87,6 +95,7 @@
                    <lebel>Year </lebel>
                 <div>
                     <input type="text" id="age">
+                    <p id="agev"></p>
                 </div>
             </div>
 
