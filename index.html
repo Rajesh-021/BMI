@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script>
+           
+          
+         
+
+        function clickShow(){
+            var height=parseInt(document.getElementById("height").value);
+            var weight=parseInt(document.getElementById("weight").value);
+
+            var bmi=(weight/(height/100)**2).toFixed(1);
+             document.getElementById("h2").innerHTML=bmi;
+             
+
+             if(isNaN(bmi)){
+                document.getElementById("h2").innerHTML=""
+              
+            }
+            else{
+                document.getElementById("h2").innerHTML=bmi;
+             
+            }
+
+            var weight=document.getElementById("lebel");
+            var msg=document.getElementById("msg");
+
+        
+            if(bmi<18.5){
+               msg.innerHTML=`Your BMI is  ${bmi}.You are in the underweight range`;
+                weight.style.backgroundColor="skyblue";
+               
+            }
+           else if(bmi>=18.5 && bmi<=24.9){
+               msg.innerHTML=`Your BMI is  ${bmi}.You are in the healthy range`;
+               weight.style.backgroundColor="green";
+                
+            }
+            else if(bmi>=25 && bmi<=29.9){
+               
+               msg.innerHTML=`Your BMI is  ${bmi}.You are in the overweight range`;
+                weight.style.backgroundColor="orange";
+              
+            }
+           else if(bmi>=30 && bmi<=34.9){
+               
+                msg.innerHTML=`Your BMI is  ${bmi}.You are in the OBESE range`;
+                weight.style.backgroundColor=" rgb(243, 67, 67)";
+               
+            }
+           else if(bmi>=35){
+
+               msg.innerHTML=`Your BMI is  ${bmi}.You are in the Extremely OBESE range`;
+                weight.style.backgroundColor="red";
+            }
+            else{
+                weight.style.backgroundColor="skyblue";
+            }
+      
+         document.getElementById("lebel").style.display="block";
+         
+        }
+       
+      
+    </script>
+ 
+</head>
+<body class="container-fluid" style="font-weight: bold; background-color: rgb(166, 165, 162);">
+    <header class="bg-danger text-center text-light p-3">
+        <h3>BMI Calculator</h3>
+    </header>
+    <section class="row" style="  background-color: skyblue;">
+       
+        <div class="col-xl-6 mt-5 ms-1">
+            <div>
+                <span><input type="radio" name="bmi" class="form-check-input" value="male" >Male</span>
+                <span><input type="radio" name="bmi" class="form-check-input"  value="female" >Female</span>
+            </div>
+            <div class="mt-3 ms-3">
+                <lebel>Year </lebel>
+                <div>
+                    <input type="text" id="age">
+                </div>
+            </div>
+
+            <div class="row ms-1 mt-3">
+                <div class="col-xl-5 ms-2 ">
+                    <lebel>height</lebel>
+                    <div><input type="text" id="height"  ><span class="border border-1 p-1">cm</span></div>
+                </div>
+                <div class="col-xl-5 ms-2 mt-3">
+                    <lebel>weight</lebel>
+                    <div><input type="text" id="weight"  ><span class="border border-1 p-1">KG</span></div>
+                </div>
+            </div>
+            <button onclick="clickShow()" class="btn btn-primary w-25 mt-3">Calculate</button>
+            <div class="mt-5" id="result">
+                <h2 id="h2"></h2>
+               <div class="progress "style="height:60px ; background-color: skyblue;" id="bar">
+                 <div class="progress-bar w-100 progress-bar-animated"  id="lebel" style="display: none;">
+                    <h5 id="msg"></h5>
+                 </div>
+                
+               </div>
+              
+            </div>
+        </div>
+        <div class="col-xl-5">
+            <img src="public/image/bmi.jfif" width="90%">
+        </div>
+    </section>
+</body>
+</html>
