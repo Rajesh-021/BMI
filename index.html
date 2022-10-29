@@ -22,19 +22,21 @@
              
              
              if(isNaN(age)){
-                document.getElementById("agev").innerHTML="Enter Age".fontcolor("red");
-               
-              
+                document.getElementById("agev").innerHTML="Age must be number".fontcolor("red");
+           
+            }
+            else{
+                document.getElementById("agev").innerHTML="";
             }
 
              if(isNaN(bmi)){
-                document.getElementById("h2").innerHTML=""
-                document.getElementById("msg").innerHTML="ONLY NUMBER".fontcolor("red").fontsize("5px");
+             
+                document.getElementById("h2").innerHTML="Fill all of these correctly (only numbers are allowed)".fontcolor("red").fontsize("5px");
               
             }
             else{
                 document.getElementById("h2").innerHTML=bmi;
-             
+               
             }
 
             var weight=document.getElementById("lebel");
@@ -73,9 +75,11 @@
             }
       
          document.getElementById("lebel").style.display="block";
-         
-        }
        
+
+        
+        }
+        
       
     </script>
  
@@ -109,7 +113,7 @@
                     <div><input type="text" id="weight"  ><span class="border border-1 p-1">KG</span></div>
                 </div>
             </div>
-            <button onclick="clickShow()" class="btn btn-primary w-25 mt-3">Calculate</button>
+            <button onclick="clickShow()" id="submit" class="btn btn-primary w-25 mt-3">Calculate</button>
             <div class="mt-5" id="result">
                 <h2 id="h2"></h2>
                <div class="progress "style="height:60px ; background-color: skyblue;" id="bar">
